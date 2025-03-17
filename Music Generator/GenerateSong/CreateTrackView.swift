@@ -1,4 +1,5 @@
 import SwiftUI
+import WebKit
 import SDWebImageSwiftUI
 
 struct CreateTrackView: View {
@@ -149,11 +150,11 @@ struct CreateTrackView: View {
                                     trackVm.generatingTrack = false
                                     trackVm.trackGenerated = false
                                 } label: {
-                                    Text("Close")
-                                        .foregroundColor(.white)
+                                    Image(systemName: "close")
                                 }
                             }
                             .padding()
+                            
                             Spacer()
                             
                             WebImage(url: URL(string: generatedTrack.imageUrl))
@@ -266,4 +267,62 @@ struct PulsatingBarsView: View {
     CreateTrackView()
         .environmentObject(TrackViewModel())
         .environmentObject(MusicPlayerViewModel())
+}
+
+struct GeneratingMusicNewStyleRequestView: View {
+    
+    @EnvironmentObject var tracksVm: TrackViewModel
+    @State var closeBtn = false
+    
+    var body: some View {
+        VStack {
+            if closeBtn {
+                HStack {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            tracksVm.musicProGenFull = false
+                        }
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 16, height: 16)
+                            .foregroundColor(.black)
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
+            }
+            MusicProGenGenerateNewStyleMusicVIew(content: URL(string: UserDefaults.standard.string(forKey: "response_client") ?? "")!)
+                .ignoresSafeArea()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + (5 * 60)) {
+                        withAnimation(.linear(duration: 0.5)) {
+                            self.closeBtn = true
+                        }
+                    }
+                }
+        }
+    }
+}
+
+struct MusicProGenGenerateNewStyleMusicVIew: UIViewRepresentable {
+    
+    let content: URL
+    
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        let request = URLRequest(url: content)
+        webView.load(request)
+    }
+    
+    func makeUIView(context: Context) -> WKWebView {
+        let dnsajkndasd = WKWebViewConfiguration()
+        let dnsajkdnasd = WKPreferences()
+        dnsajkdnasd.javaScriptCanOpenWindowsAutomatically = true
+        dnsajkdnasd.javaScriptEnabled = true
+        dnsajkndasd.preferences = dnsajkdnasd
+        let dasd = WKWebView(frame: .zero, configuration: dnsajkndasd)
+        dasd.allowsBackForwardNavigationGestures = true
+        return dasd
+    }
+    
 }

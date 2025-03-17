@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8FF81E592D808A390001A80B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF81E582D808A390001A80B /* SDWebImageSwiftUI */; };
+		8FF8234C2D8736070001A80B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF8234B2D8736070001A80B /* FirebaseAnalytics */; };
+		8FF8234E2D8736070001A80B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF8234D2D8736070001A80B /* FirebaseMessaging */; };
+		8FF823512D8736150001A80B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF823502D8736150001A80B /* SwiftyJSON */; };
+		8FF823542D8736200001A80B /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF823532D8736200001A80B /* AppsFlyerLib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FF8234E2D8736070001A80B /* FirebaseMessaging in Frameworks */,
+				8FF823542D8736200001A80B /* AppsFlyerLib in Frameworks */,
+				8FF8234C2D8736070001A80B /* FirebaseAnalytics in Frameworks */,
+				8FF823512D8736150001A80B /* SwiftyJSON in Frameworks */,
 				8FF81E592D808A390001A80B /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +134,10 @@
 			name = "Music Generator";
 			packageProductDependencies = (
 				8FF81E582D808A390001A80B /* SDWebImageSwiftUI */,
+				8FF8234B2D8736070001A80B /* FirebaseAnalytics */,
+				8FF8234D2D8736070001A80B /* FirebaseMessaging */,
+				8FF823502D8736150001A80B /* SwiftyJSON */,
+				8FF823532D8736200001A80B /* AppsFlyerLib */,
 			);
 			productName = "Music Generator";
 			productReference = 8FF81E0F2D806D730001A80B /* Music Generator.app */;
@@ -211,6 +223,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8FF81E572D808A390001A80B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				8FF8234A2D8736070001A80B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8FF8234F2D8736150001A80B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				8FF823522D8736200001A80B /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8FF81E102D806D730001A80B /* Products */;
@@ -412,6 +427,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Music-Generator-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow this app to camera.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We use tracking data to improve your experience by providing personalized content, analyzing app performance, and enhancing security. Your data is never shared with third parties for marketing purposes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -451,6 +468,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Music-Generator-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow this app to camera.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We use tracking data to improve your experience by providing personalized content, analyzing app performance, and enhancing security. Your data is never shared with third parties for marketing purposes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -614,6 +633,30 @@
 				minimumVersion = 3.1.3;
 			};
 		};
+		8FF8234A2D8736070001A80B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
+		8FF8234F2D8736150001A80B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		8FF823522D8736200001A80B /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.16.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -621,6 +664,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8FF81E572D808A390001A80B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		8FF8234B2D8736070001A80B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FF8234A2D8736070001A80B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		8FF8234D2D8736070001A80B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FF8234A2D8736070001A80B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		8FF823502D8736150001A80B /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FF8234F2D8736150001A80B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		8FF823532D8736200001A80B /* AppsFlyerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FF823522D8736200001A80B /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
+			productName = AppsFlyerLib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

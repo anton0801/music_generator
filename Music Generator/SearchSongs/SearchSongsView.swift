@@ -8,6 +8,7 @@ struct SearchSongsView: View {
     
     @State var searchQuery: String = ""
     @State var tracksForSee: [Track] = []
+    @State private var fullPlayerView = false
     
     var body: some View {
         VStack {
@@ -69,10 +70,18 @@ struct SearchSongsView: View {
             if let _ = musicPlayerVm.currentTrack {
                 MiniPlayer()
                     .environmentObject(musicPlayerVm)
+                    .onTapGesture {
+                        fullPlayerView = true
+                    }
             }
         }
         .onAppear {
             tracksForSee = tracksVM.tracks
+        }
+        .fullScreenCover(isPresented: $fullPlayerView) {
+            DetailsMusicPlayerView()
+                .environmentObject(tracksVM)
+                .environmentObject(musicPlayerVm)
         }
         .onChange(of: searchQuery) { newValue in
             if searchQuery.isEmpty {
